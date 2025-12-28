@@ -48,24 +48,31 @@ function App() {
 
   return (
     <>
-      <InputS
-        PropertyPrice={PropertyPrice}
-        DownPayment={DownPayment}
-        InterestRate={InterestRate}
-        LoanTerm={LoanTerm}
-        setPropertyPrice={setPropertyPrice}
-        setDownPayment={setDownPayment}
-        setInterestRate={setInterestRate}
-        setLoanTerm={setLoanTerm}
-        handleResult={handleResult}
-      />
+      <div className="app-container">
+        <header className="app-header">
+          <div className="logo-placeholder">LLOYDS BANK</div>
+          <h1>Mortgage Calculator</h1>
+          <p>Estimate your monthly payments in seconds.</p>
+        </header>
+        <InputS
+          PropertyPrice={PropertyPrice}
+          DownPayment={DownPayment}
+          InterestRate={InterestRate}
+          LoanTerm={LoanTerm}
+          setPropertyPrice={setPropertyPrice}
+          setDownPayment={setDownPayment}
+          setInterestRate={setInterestRate}
+          setLoanTerm={setLoanTerm}
+          handleResult={handleResult}
+        />
 
-      {calculated && (
-        <Result total={results.total}
-          pi={results.pi}
-          taxes={results.taxes}
-          insurance={results.insurance} />
-      )}
+        {calculated && (
+          <Result total={results.total}
+            pi={results.pi}
+            taxes={results.taxes}
+            insurance={results.insurance} />
+        )}
+      </div>
 
     </>
   )
