@@ -8,6 +8,11 @@ function App() {
   const [LoanTerm, setLoanTerm] = useState("");
   const [InterestRate, setInterestRate] = useState("");
 
+  const fields = [PropertyPrice, DownPayment, LoanTerm, InterestRate];
+  const filled = fields.filter(field => field > 0).length;
+  const progres = (filled / fields.length) * 100;
+
+
 
   const [calculated, setCalculated] = useState(false);
   const [results, setResults] = useState({
@@ -19,8 +24,7 @@ function App() {
 
 
   const handleResult = () => {
-    const monthlyPayment = ((PropertyPrice - DownPayment) / (LoanTerm * 12)).toFixed(2);
-
+    
     const principal = PropertyPrice - DownPayment;
     const monthlyRate = InterestRate / 100 / 12;
     const numberOfPayments = LoanTerm * 12;
@@ -54,6 +58,13 @@ function App() {
           <h1>Mortgage Calculator</h1>
           <p>Estimate your monthly payments in seconds.</p>
         </header>
+
+        <div className="progress-container">
+          <div className="progress-bar"
+            style={{ width: `${progres}%` }}
+          ></div>
+        </div>
+
         <InputS
           PropertyPrice={PropertyPrice}
           DownPayment={DownPayment}
