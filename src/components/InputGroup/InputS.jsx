@@ -1,4 +1,4 @@
-const InputS = ({PropertyPrice, DownPayment, InterestRate, LoanTerm, setPropertyPrice, setDownPayment, setInterestRate, setLoanTerm, handleResult}) => {
+const InputS = ({ PropertyPrice, DownPayment, InterestRate, LoanTerm, setPropertyPrice, setDownPayment, setInterestRate, setLoanTerm, handleResult, MortgageType, setMortgageType }) => {
     return (
         <div className="input-section">
             <div className='input-group'>
@@ -13,6 +13,14 @@ const InputS = ({PropertyPrice, DownPayment, InterestRate, LoanTerm, setProperty
 
                 <label className="input-label">Loan Term:</label>
                 <input className="input-field" type='number' value={LoanTerm} onChange={(e) => setLoanTerm(Number(e.target.value))} />
+
+                <label className="input-label">Mortgage Type:</label>
+                <select value={MortgageType} onChange={(e) => setMortgageType(e.target.value)} className="mortgage-type">
+                    <option value="Fixed-rate">Fixed-Rate</option>
+                    <option value="Adjustable-rate">Adjustable-Rate</option>
+                    <option value="Interest-Only">Interest-Only</option>
+                </select>
+
             </div>
 
             <button className="btn" onClick={handleResult}>Calculate</button>

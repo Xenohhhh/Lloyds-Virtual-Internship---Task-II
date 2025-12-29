@@ -7,6 +7,7 @@ function App() {
   const [DownPayment, setDownPayment] = useState("");
   const [LoanTerm, setLoanTerm] = useState("");
   const [InterestRate, setInterestRate] = useState("");
+  const [MortgageType, setMortgageType] = useState("Fixed-rate");
 
   const fields = [PropertyPrice, DownPayment, LoanTerm, InterestRate];
   const filled = fields.filter(field => field > 0).length;
@@ -24,14 +25,21 @@ function App() {
 
 
   const handleResult = () => {
-    
+
     const principal = PropertyPrice - DownPayment;
     const monthlyRate = InterestRate / 100 / 12;
     const numberOfPayments = LoanTerm * 12;
+    let monthlyPI = 0;
 
-    const monthlyPI =
-      (principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) /
-      (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+   
+    if (MortgageType === "Interest-Only") {
+      monthlyPI = principal * monthlyRate;
+    } else {
+      monthlyPI = (principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) /
+        (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+    }
+
+
 
     const monthlyTaxes = (PropertyPrice * 0.012) / 12;
 
@@ -75,6 +83,8 @@ function App() {
           setInterestRate={setInterestRate}
           setLoanTerm={setLoanTerm}
           handleResult={handleResult}
+          MortgageType={MortgageType}
+          setMortgageType={setMortgageType}
         />
 
         {calculated && (
