@@ -1,7 +1,7 @@
 # Mortgage Calculator - Lloyds Bank Job Simulation
 
 ## 📌 Project Overview
-This project is a digital wireframe of a mortgage calculator developed as part of the **Lloyds Bank Job Simulation **. The goal was to take initial customer insights and design a tool that makes the mortgage process clearer, more intuitive, and accessible for all users.
+This project is a digital wireframe of a mortgage calculator developed as part of the **Lloyds Bank Job Simulation**. The goal was to take initial customer insights and design a tool that makes the mortgage process clearer, more intuitive, and accessible for all users.
 
 ## 🎨 Design Philosophy
 Following the project brief, I focused on three core principles:
